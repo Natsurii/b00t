@@ -80,7 +80,7 @@ async def help(ctx):
 	await ctx.send('This bot is for OWNER USE ONLY!')
 
 
-@bot.command()
+@bot.command
 async def _8ball(ctx, *, msg):
     cha = random.choice(['Hinde', '100% Sure', 'Hindi ko alam', 'malay ko', 'ewan ko ba', 'Di ko masasagot yan', 'pagiisapan ko pa', 'Oo na lang ako', 'Di ko sure','anong klaseng tanong yan?', 'Tanong mo nalang kay Batman', 'Yes nall yes', 'Uu'])
     
