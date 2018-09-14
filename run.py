@@ -19,7 +19,7 @@ from discord.ext import commands
 import sys, traceback
 import logging
 import sys
-
+import random
 #Variables
 token = os.environ['TOKEN']
 
@@ -78,5 +78,12 @@ if __name__ == '__main__':
 async def help(ctx):
 	'''Help command.'''
 	await ctx.send('This bot is for OWNER USE ONLY!')
+
+
+@bot.command()
+async def _8ball(ctx, *, msg):
+    cha = random.choice(['Hinde', '100% Sure', 'Hindi ko alam', 'malay ko', 'ewan ko ba', 'Di ko masasagot yan', 'pagiisapan ko pa', 'Oo na lang ako', 'Di ko sure','anong klaseng tanong yan?', 'Tanong mo nalang kay Batman', 'Yes nall yes', 'Uu'])
+    
+    await ctx.send(f'Question: {msg} \n Answer: {cha}, {ctx.author.name}')
 
 bot.run(token, bot=True, reconnect=True)
