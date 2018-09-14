@@ -20,7 +20,7 @@ import logging
 import sys
 
 #Variables
-token = 'NDc5NjIzMjM4MzIyODgwNTI0.DmOdeg.OR5ivPeV4fwIGlnEv4itKYwyk18' #os.environ['TOKEN']
+token = os.environ['TOKEN']
 
 Desc = 'Welcome to Mika ver. 0.4 Framework. \nThis project is still in WORK IN PROGRESS.'
 
