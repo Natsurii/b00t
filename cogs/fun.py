@@ -21,7 +21,7 @@ class Fun():
 		return
 
 	@commands.command(name='truth')
-	async def truth(ctx, *, msg):
+	async def truth(self, ctx, *, msg):
 		'''You gotta tell me a question and I will answer it if it is True or False.'''
 		
 		cha = random.choice(['Hinde', 
@@ -48,7 +48,7 @@ class Fun():
 		await ctx.send(f'Question: {msg} \n Answer: {cha}, {ctx.author.name}')
 
 	@commands.command()
-	async def flip(ctx):
+	async def flip(self, ctx):
 		'''Just a Flipcoin command'''
 		
 		embed = discord.Embed(title='\N{ZERO WIDTH SPACE}', description='\N{ZERO WIDTH SPACE}', color=0x2C2F33)
