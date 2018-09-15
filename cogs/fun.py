@@ -57,11 +57,11 @@ class Fun():
 		
 		if face == 'Heads':
 			embed.set_image(url="https://cdn.discordapp.com/attachments/490643354779123733/490643408327540773/heads.png")
-			embed.add_field(name=f'**{ctx.author.mention}**, The coin Lands on *Heads*!', value='\N{ZERO WIDTH SPACE}')
+			embed.add_field(name=f'**{ctx.author.name}**, The coin Lands on *Heads*!', value='\N{ZERO WIDTH SPACE}')
 		
 		else:
 			embed.set_image(url="https://cdn.discordapp.com/attachments/490643354779123733/490643410471092224/tails.png")
-			embed.add_field(name=f'**{ctx.author.mention}**, The coin Lands on *Tails*!', value='\N{ZERO WIDTH SPACE}')
+			embed.add_field(name=f'**{ctx.author.name}**, The coin Lands on *Tails*!', value='\N{ZERO WIDTH SPACE}')
 
 		await ctx.send(embed=embed)
 
