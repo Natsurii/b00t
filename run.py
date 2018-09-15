@@ -25,7 +25,7 @@ token = os.environ['TOKEN']
 
 Desc = 'Welcome to Mika ver. 0.4 Framework. \nThis project is still in WORK IN PROGRESS.'
 
-initial_extensions = ['cogs.eval']
+initial_extensions = ['cogs.eval','cogs.fun']
 
 #Logger Verbose
 logger = logging.getLogger('discord')
@@ -66,25 +66,12 @@ async def on_ready():
 
 # Here we load our extensions(cogs) listed above in [initial_extensions].
 if __name__ == '__main__':
-    for extension in initial_extensions:
-        try:
-            bot.load_extension(extension)
-            print(f'{extension} loaded successfully.')
-        except Exception as e:
-            print(f'Failed to load extension {extension}.', file=sys.stderr)
-            traceback.print_exc()
-
-@bot.command
-async def help(ctx):
-	'''Help command.'''
-	await ctx.send('This bot is for OWNER USE ONLY!')
-
-
-@bot.command()
-async def truth(ctx, *, msg):
-    '''What is truth?'''
-    cha = random.choice(['Hinde', '100% Sure', 'Hindi ko alam', 'malay ko', 'ewan ko ba', 'Di ko masasagot yan', 'pagiisapan ko pa', 'Oo na lang ako', 'Di ko sure','anong klaseng tanong yan?', 'Tanong mo nalang kay Batman', 'Yes nall yes', 'Uu'])
-    
-    await ctx.send(f'Question: {msg} \n Answer: {cha}, {ctx.author.name}')
+	for extension in initial_extensions:
+		try:
+			bot.load_extension(extension)
+			print(f'{extension} loaded successfully.')
+		except Exception as e:
+			print(f'Failed to load extension {extension}.', file=sys.stderr)
+			traceback.print_exc()
 
 bot.run(token, bot=True, reconnect=True)
