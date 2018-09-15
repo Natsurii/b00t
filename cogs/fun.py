@@ -55,7 +55,7 @@ class Fun():
 		
 		face = random.choice(['Heads', 'Tails'])
 		
-		if face == Heads:
+		if face == 'Heads':
 			embed.set_image(url="https://cdn.discordapp.com/attachments/490643354779123733/490643408327540773/heads.png")
 			embed.add_field(name=f'**{ctx.author.mention}**, The coin Lands on *Heads*!', value='\N{ZERO WIDTH SPACE}')
 		
