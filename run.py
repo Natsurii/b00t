@@ -21,11 +21,11 @@ import logging
 import sys
 import random
 #Variables
-token = os.environ['TOKEN']
+token = 'NDU2Nzg0OTY1NzMzMTg3NTg0.DohW2Q._zaj_ln4YjByhY7jqv9RUXWDoq4'#os.environ['TOKEN']
 
-Desc = 'Welcome to Mika ver. 0.4 Framework. \nThis project is still in WORK IN PROGRESS.'
+Desc = 'Welcome to Mika ver. 0.4.3 Framework. \nThis project is still in WORK IN PROGRESS.'
 
-initial_extensions = ['cogs.eval','cogs.fun']
+initial_extensions = ['cogs.eval','cogs.fun','cogs.owner_override','cogs.utils']
 
 #Logger Verbose
 logger = logging.getLogger('discord')

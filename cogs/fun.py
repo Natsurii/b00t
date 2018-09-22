@@ -44,24 +44,23 @@ class Fun():
 			'Mali ka dyan',
 			'👍',
 			'👎'])
-	
-		await ctx.send(f'Question: {msg} \n Answer: {cha}, {ctx.author.name}')
+		embed = discord.Embed(title='\N{ZERO WIDTH SPACE}', description=f'Question: {msg} \n Answer: {cha}, {ctx.author.name}', color=0x36393E)
+		await ctx.send(embed = embed)
 
 	@commands.command()
 	async def flip(self, ctx):
 		'''Just a Flipcoin command'''
 		
-		embed = discord.Embed(title='\N{ZERO WIDTH SPACE}', description='\N{ZERO WIDTH SPACE}', color=0x2C2F33)
-		
 		face = random.choice(['Heads', 'Tails'])
 		
 		if face == 'Heads':
+			embed = discord.Embed(title='\N{ZERO WIDTH SPACE}', description=f'**{ctx.author.name}**, The coin Lands on __**Heads**__!', color=0x36393E)
 			embed.set_image(url="https://cdn.discordapp.com/attachments/490643354779123733/490643408327540773/heads.png")
 			embed.add_field(name=f'**{ctx.author.name}**, The coin Lands on *Heads*!', value='\N{ZERO WIDTH SPACE}')
 		
 		else:
+			embed = discord.Embed(title='\N{ZERO WIDTH SPACE}', description=f'**{ctx.author.name}**, The coin Lands on __**Tails**!__', color=0x36393E)
 			embed.set_image(url="https://cdn.discordapp.com/attachments/490643354779123733/490643410471092224/tails.png")
-			embed.add_field(name=f'**{ctx.author.name}**, The coin Lands on *Tails*!', value='\N{ZERO WIDTH SPACE}')
 
 		await ctx.send(embed=embed)
 
