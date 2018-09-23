@@ -21,7 +21,7 @@ import logging
 import sys
 import random
 #Variables
-token = 'NDU2Nzg0OTY1NzMzMTg3NTg0.DohW2Q._zaj_ln4YjByhY7jqv9RUXWDoq4'#os.environ['TOKEN']
+token = os.environ['TOKEN']
 
 Desc = 'Welcome to Mika ver. 0.4.3 Framework. \nThis project is still in WORK IN PROGRESS.'
 
