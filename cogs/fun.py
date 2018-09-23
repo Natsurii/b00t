@@ -56,7 +56,7 @@ class Fun():
 		if face == 'Heads':
 			embed = discord.Embed(title='\N{ZERO WIDTH SPACE}', description=f'**{ctx.author.name}**, The coin Lands on __**Heads**__!', color=0x36393E)
 			embed.set_image(url="https://cdn.discordapp.com/attachments/490643354779123733/490643408327540773/heads.png")
-			embed.add_field(name=f'**{ctx.author.name}**, The coin Lands on *Heads*!', value='\N{ZERO WIDTH SPACE}')
+
 		
 		else:
 			embed = discord.Embed(title='\N{ZERO WIDTH SPACE}', description=f'**{ctx.author.name}**, The coin Lands on __**Tails**!__', color=0x36393E)
