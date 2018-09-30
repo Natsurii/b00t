@@ -20,12 +20,13 @@ import sys, traceback
 import logging
 import sys
 import random
+import libneko
 #Variables
 token = os.environ['TOKEN']
 
 Desc = 'Welcome to Mika ver. 0.4.3 Framework. \nThis project is still in WORK IN PROGRESS.'
 
-initial_extensions = ['cogs.eval','cogs.fun','cogs.owner_override','cogs.utils']
+initial_extensions = ['cogs.eval','cogs.fun','cogs.owner_override','cogs.utils', 'libneko.extras.help','libneko.extras.superuser']
 
 #Logger Verbose
 logger = logging.getLogger('discord')
