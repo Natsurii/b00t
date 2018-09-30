@@ -1,6 +1,8 @@
 import io
 import textwrap
 import traceback
+import discord
+import libneko
 from contextlib import redirect_stdout
 from discord.ext import commands
 
