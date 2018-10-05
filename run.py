@@ -24,7 +24,7 @@ import libneko
 #Variables
 token = os.environ['TOKEN']
 
-Desc = 'Welcome to Mika ver. 0.4.3 Framework. \nThis project is still in WORK IN PROGRESS.'
+Desc = 'Welcome to Mika ver. 0.4.4 Framework. \nThis project is still in WORK IN PROGRESS.'
 
 initial_extensions = ['cogs.eval','cogs.fun','cogs.owner_override','cogs.utils', 'libneko.extras.help','libneko.extras.superuser']
 
@@ -74,5 +74,11 @@ if __name__ == '__main__':
 		except Exception as e:
 			print(f'Failed to load extension {extension}.', file=sys.stderr)
 			traceback.print_exc()
+
+bot.remove_command('help')
+@bot.command()
+async def help(ctx):
+	'''Disables the help command'''
+	await ctx.send('Help is currently disabled!\nPlease suggest a new command by using the command `m++suggest <suggestion>`.\nThank you for contributiong the bot!')
 
 bot.run(token, bot=True, reconnect=True)
