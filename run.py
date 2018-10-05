@@ -79,6 +79,6 @@ bot.remove_command('help')
 @bot.command()
 async def help(ctx):
 	'''Disables the help command'''
-	await ctx.send('Help is currently disabled!\nPlease suggest a new command by using the command `m++suggest <suggestion>`.\nThank you for contributiong the bot!')
+	await ctx.send('Help is currently disabled!\nPlease suggest a new command by using the command `m++suggest <suggestion>`.\nThank you for contributing the bot!')
 
 bot.run(token, bot=True, reconnect=True)
