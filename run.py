@@ -26,7 +26,7 @@ token = os.environ['TOKEN']
 
 Desc = 'Welcome to Mika ver. 0.4.4 Framework. \nThis project is still in WORK IN PROGRESS.'
 
-initial_extensions = ['cogs.eval','cogs.fun','cogs.owner_override','cogs.utils', 'libneko.extras.help','libneko.extras.superuser','cogs.image']
+initial_extensions = ['cogs.eval','cogs.fun','cogs.owner_override','cogs.utils', 'libneko.extras.help','libneko.extras.superuser','cogs.image', 'cogs.st']
 
 #Logger Verbose
 logger = logging.getLogger('discord')
