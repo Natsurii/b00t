@@ -18,17 +18,18 @@ from io import BytesIO
 # this just allows for nice function annotation, and stops my IDE from complaining.
 from typing import Union
 
-dummy = 'https://cdn.discordapp.com/attachments/490068620903448577/491394502053855268/ST_design.png'
-
-class Servertest:
+class ImageCog:
     def __init__(self, bot: commands.Bot):
+
         # we need to include a reference to the bot here so we can access its loop later.
         self.bot = bot
 
         # create a ClientSession to be used for downloading avatars
         self.session = aiohttp.ClientSession(loop=bot.loop)
 
+
     async def get_avatar(self, user: Union[discord.User, discord.Member]) -> bytes:
+
         # generally an avatar will be 1024x1024, but we shouldn't rely on this
         avatar_url = user.avatar_url_as(format="png")
 
@@ -36,23 +37,29 @@ class Servertest:
             # this gives us our response object, and now we can read the bytes from it.
             avatar_bytes = await response.read()
 
-        async with self.session.get(dummy) as r:
-            frame_bytes = await r.read()
-
-        return frame_bytes
         return avatar_bytes
-
+    async def get_frame(self) -> bytes:
+        frame_url = 'https://cdn.discordapp.com/attachments/490068620903448577/491394502053855268/ST_design.png'
+        async with self.session.get(frame_url) as response:
+            frame_bytes = await response.read()
+        return frame_bytes
 
     @staticmethod
     def processing(avatar_bytes: bytes) -> BytesIO:
         # we must use BytesIO to load the image here as PIL expects a stream instead of
         # just raw bytes.
         with Image.open(BytesIO(avatar_bytes)) as im:
-            im.resize((1024, 1024))
-            rgb_avatar = im.convert("RGB")
-            with Image.open(BytesIO(frame_bytes)) as frame:
+            im.resize((950, 950))
+
+            # this creates a new image the same size as the user's avatar, with the
+            # background colour being the user's colour.
+            with Image.open(bytesIO(frame_bytes)) as frame:
                 frame.resize((1024, 1024))
-                frame.paste(rgb_avatar, (0, 0))
+
+                # this ensures that the user's avatar lacks an alpha channel, as we're
+                # going to be substituting our own here.
+                rgb_avatar = im.convert("RGB")
+                rgb_avatar.paste(frame, (0, 0), frame)
 
                 # prepare the stream to save this image into
                 final_buffer = BytesIO()
@@ -66,8 +73,8 @@ class Servertest:
         return final_buffer
 
     @commands.command()
-    async def stframe(self, ctx, *, member: discord.Member = None):
-        """Display the user's avatar on their colour."""
+    async def frame(self, ctx, *, member: discord.Member = None):
+        """Shows their avatar with frame"""
 
         # this means that if the user does not supply a member, it will default to the
         # author of the message.
@@ -79,6 +86,7 @@ class Servertest:
             # grab the user's avatar as bytes
             avatar_bytes = await self.get_avatar(member)
 
+
             # create partial function so we don't have to stack the args in run_in_executor
             fn = partial(self.processing, avatar_bytes)
 
@@ -87,7 +95,7 @@ class Servertest:
             final_buffer = await self.bot.loop.run_in_executor(None, fn)
 
             # prepare the file
-            file = discord.File(filename="servertest.png", fp=final_buffer)
+            file = discord.File(filename="frame.png", fp=final_buffer)
 
             # send it
             await ctx.send(file=file)
@@ -95,4 +103,4 @@ class Servertest:
 
 # setup function so this can be loaded as an extension
 def setup(bot: commands.Bot):
-    bot.add_cog(Servertest(bot))
+    bot.add_cog(TestImageCog(bot))
