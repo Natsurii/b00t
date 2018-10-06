@@ -18,36 +18,39 @@ from io import BytesIO
 # this just allows for nice function annotation, and stops my IDE from complaining.
 from typing import Union
 
+dummy = 'https://cdn.discordapp.com/attachments/490068620903448577/491394502053855268/ST_design.png'
+
 class Servertest:
     def __init__(self, bot: commands.Bot):
-
         # we need to include a reference to the bot here so we can access its loop later.
         self.bot = bot
 
         # create a ClientSession to be used for downloading avatars
         self.session = aiohttp.ClientSession(loop=bot.loop)
 
-
     async def get_avatar(self, user: Union[discord.User, discord.Member]) -> bytes:
-
         # generally an avatar will be 1024x1024, but we shouldn't rely on this
-        avatar_url = user.avatar_url_as(format="gif")
+        avatar_url = user.avatar_url_as(format="png")
 
         async with self.session.get(avatar_url) as response:
             # this gives us our response object, and now we can read the bytes from it.
             avatar_bytes = await response.read()
 
+        async with bot.session.get(dummy) as r:
+            frame_bytes = await r.read()
+
+        return frame_bytes
         return avatar_bytes
 
-    @staticmethod
-    def processing(avatar_bytes: bytes) -> BytesIO:
 
+    @staticmethod
+    def processing(avatar_bytes: bytes, frame_bytes: bytes) -> BytesIO:
         # we must use BytesIO to load the image here as PIL expects a stream instead of
         # just raw bytes.
         with Image.open(BytesIO(avatar_bytes)) as im:
             im.resize((1024, 1024))
             rgb_avatar = im.convert("RGB")
-            with Image.open(BytesIO(ST_design.png)) as frame:
+            with Image.open(BytesIO(frame_bytes)) as frame:
                 frame.resize((1024, 1024))
                 frame.paste(rgb_avatar, (0, 0))
 
