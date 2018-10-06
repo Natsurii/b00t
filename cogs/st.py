@@ -36,7 +36,7 @@ class Servertest:
             # this gives us our response object, and now we can read the bytes from it.
             avatar_bytes = await response.read()
 
-        async with bot.session.get(dummy) as r:
+        async with self.session.get(dummy) as r:
             frame_bytes = await r.read()
 
         return frame_bytes
