@@ -80,7 +80,7 @@ class Servertest:
             avatar_bytes = await self.get_avatar(member)
 
             # create partial function so we don't have to stack the args in run_in_executor
-            fn = partial(self.processing, avatar_bytes)
+            fn = partial(self.processing, avatar_bytes, frame_bytes)
 
             # this runs our processing in an executor, stopping it from blocking the thread loop.
             # as we already seeked back the buffer in the other thread, we're good to go
