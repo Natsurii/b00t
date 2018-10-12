@@ -1,5 +1,4 @@
-
-#!/usr/bin/env python3.6
+# /bin/env python3.6
 # -*- coding: utf-8 -*-
 
 '''
@@ -21,64 +20,72 @@ import logging
 import sys
 import random
 import libneko
-#Variables
+
+# Variables
 token = os.environ['TOKEN']
 
 Desc = 'Welcome to Mika ver. 0.4.4 Framework. \nThis project is still in WORK IN PROGRESS.'
 
-initial_extensions = ['cogs.eval','cogs.fun','cogs.owner_override','cogs.utils', 'libneko.extras.help','libneko.extras.superuser','cogs.image', 'cogs.st']
+initial_extensions = ['cogs.eval', 'cogs.fun', 'cogs.owner_override', 'cogs.utils', 'libneko.extras.help',
+                      'libneko.extras.superuser', 'cogs.image', 'cogs.st']
 
-#Logger Verbose
+# Logger Verbose
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
 handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
-#Prefixes
-prefixes = ['m++','Mika','Mika ']
-
+# Prefixes
+prefixes = ['m++', 'Mika', 'Mika ']
 
 bot = commands.Bot(command_prefix=prefixes, description=Desc, owner_id=305998511894167552)
 
+
 @bot.event
 async def on_ready():
-	
-	print('___  ___ _  _            _             _ ')
-	print('|  \/  |(_)| |          | |           | |   ')
-	print('| .  . | _ | | __  __ _ | |__    ___  | |_  ')
-	print('| |\/| || || |/ / / _` || \'_ \  / _ \ | __|')
-	print('| |  | || ||   < | (_| || |_) || (_) || |_ ')
-	print('\_|  |_/|_||_|\_\ \__,_||_.__/  \___/  \__| \n \n')
-	print('_   _                  _____       ___   ')
-	print('| | | |                |  _  |     /   | ') 
-	print('| | | |  ___  _ __     | |/\' |    / /| |') 
-	print('| | | | / _ \| \'__|    |  /| |   / /_| |')
-	print('\ \_/ /|  __/| |    _  \ |_/ / _ \___  | ') 
-	print(' \___/  \___||_|   (_)  \___/ (_)    |_/') 
-	print('                                        ')
-	print('==========================================')
+    print('___  ___ _  _            _             _ ')
+    print('|  \/  |(_)| |          | |           | |   ')
+    print('| .  . | _ | | __  __ _ | |__    ___  | |_  ')
+    print('| |\/| || || |/ / / _` || \'_ \  / _ \ | __|')
+    print('| |  | || ||   < | (_| || |_) || (_) || |_ ')
+    print('\_|  |_/|_||_|\_\ \__,_||_.__/  \___/  \__| \n \n')
+    print('_   _                  _____       ___   ')
+    print('| | | |                |  _  |     /   | ')
+    print('| | | |  ___  _ __     | |/\' |    / /| |')
+    print('| | | | / _ \| \'__|    |  /| |   / /_| |')
+    print('\ \_/ /|  __/| |    _  \ |_/ / _ \___  | ')
+    print(' \___/  \___||_|   (_)  \___/ (_)    |_/')
+    print('                                        ')
+    print('==========================================')
 
-	print(f'Python Version {sys.version}')
-	print(f'Discord Version {discord.__version__}')
-	print(f'We are inside of {bot.user} \n	with the ID {bot.user.id}')
-	guildlen = len(bot.guilds)
-	print(f'currently in {guildlen} servers')
+    print(f'Python Version {sys.version}')
+    print(f'Discord Version {discord.__version__}')
+    print(f'We are inside of {bot.user} \n	with the ID {bot.user.id}')
+    guildlen = len(bot.guilds)
+    print(f'currently in {guildlen} servers')
+
 
 # Here we load our extensions(cogs) listed above in [initial_extensions].
 if __name__ == '__main__':
-	for extension in initial_extensions:
-		try:
-			bot.load_extension(extension)
-			print(f'{extension} loaded successfully.')
-		except Exception as e:
-			print(f'Failed to load extension {extension}.', file=sys.stderr)
-			traceback.print_exc()
+    for extension in initial_extensions:
+        try:
+            bot.load_extension(extension)
+            print(f'{extension} loaded successfully.')
+        except Exception as e:
+            print(f'Failed to load extension {extension}.', file=sys.stderr)
+            traceback.print_exc()
 
 bot.remove_command('help')
+
+
 @bot.command()
 async def help(ctx):
-	'''Disables the help command'''
-	await ctx.send('Help is currently disabled!\nPlease suggest a new command by using the command `m++suggest <suggestion>`.\nThank you for contributing the bot!')
+    '''Disables the help command'''
+    await ctx.send(
+        '''Help is currently disabled!
+        Please suggest a new command by using the command `m++suggest <suggestion>`.
+        Thank you for contributing the bot!''')
+
 
 bot.run(token, bot=True, reconnect=True)
