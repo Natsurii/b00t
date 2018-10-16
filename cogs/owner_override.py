@@ -15,31 +15,34 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 import discord
 from discord.ext import commands
 
+
 class Owner():
-	def __init__(self,bot):
-		return
+    def __init__(self, bot):
+        return
 
-	@commands.command(hidden=True, name='image_embed', alias='ie')
-	@commands.is_owner()
-	async def image_embed(self, ctx, id, *, img):
-		'''Image Embed'''
-		embed = discord.Embed(title='\N{ZERO WIDTH SPACE}', description='\N{ZERO WIDTH SPACE}', color=0x36393E)
-		embed.set_image(url=img)
-		await ctx.bot.get_channel(id).send(embed=embed)
+    @commands.command(hidden=True, name='image_embed', alias=['ie'])
+    @commands.is_owner()
+    async def image_embed(self, ctx, id, *, img):
+        '''Image Embed'''
+        embed = discord.Embed(title='\N{ZERO WIDTH SPACE}', description='\N{ZERO WIDTH SPACE}', color=0x36393E)
+        embed.set_image(url=img)
+        await ctx.bot.get_channel(id).send(embed=embed)
 
-	@commands.command(hidden=True, name='pokespoof', alias='poke')
-	@commands.is_owner()
-	async def image_embed(self, ctx, id, *, img):
-		'''Image Embed'''
-		embed = discord.Embed(title='A wild pokémon has appeared!', description='Guess the pokémon and type p!catch <pokémon> to catch it!', color=0x00AF87)
-		embed.set_image(url=img)
-		await ctx.bot.get_channel(id).send(embed=embed)
+    @commands.command(hidden=True, name='pokespoof', alias=['poke'])
+    @commands.is_owner()
+    async def image_embed(self, ctx, id, *, img):
+        '''Image Embed'''
+        embed = discord.Embed(title='A wild pokémon has appeared!',
+                              description='Guess the pokémon and type p!catch <pokémon> to catch it!', color=0x00AF87)
+        embed.set_image(url=img)
+        await ctx.bot.get_channel(id).send(embed=embed)
 
-	@commands.command(hidden=True, name='echo', alias='ec')
-	@commands.is_owner()
-	async def echo(self, ctx, id, *, msg):
-		'''echo powers'''
-		await ctx.bot.get_channel(id).send(msg)
+    @commands.command(hidden=True, name='echo', alias=['ec'])
+    @commands.is_owner()
+    async def echo(self, ctx, id, *, msg):
+        '''echo powers'''
+        await ctx.bot.get_channel(id).send(msg)
+
 
 def setup(bot):
-	bot.add_cog(Owner(bot))
+    bot.add_cog(Owner(bot))

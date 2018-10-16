@@ -16,53 +16,59 @@ import discord
 import random
 from discord.ext import commands
 
+
 class Fun():
-	def __init__(self,bot):
-		return
+    def __init__(self, bot):
+        return
 
-	@commands.command(name='truth')
-	async def truth(self, ctx, *, msg):
-		'''You gotta tell me a question and I will answer it if it is True or False.'''
-		
-		cha = random.choice(['Hinde', 
-			'100% Sure', 
-			'Hindi ko alam', 
-			'malay ko', 
-			'ewan ko ba', 
-			'Di ko masasagot yan', 
-			'pagiisapan ko pa', 
-			'Oo na lang ako', 
-			'Di ko sure',
-			'anong klaseng tanong yan?', 
-			'Tanong mo nalang kay Batman', 
-			'Yes na yes', 
-			'Uu', 
-			'True pa sa dede mo',
-			'Tama ka dyan',
-			'I Absolutely Agree',
-			'Tumpak ka dyan',
-			'Mali ka dyan',
-			'👍',
-			'👎'])
-		embed = discord.Embed(title='\N{ZERO WIDTH SPACE}', description=f'Question: {msg} \n Answer: {cha}, {ctx.author.name}', color=0x36393E)
-		await ctx.send(embed = embed)
+    @commands.command(name='truth')
+    async def truth(self, ctx, *, msg):
+        '''You gotta tell me a question and I will answer it if it is True or False.'''
 
-	@commands.command()
-	async def flip(self, ctx):
-		'''Just a Flipcoin command'''
-		
-		face = random.choice(['Heads', 'Tails'])
-		
-		if face == 'Heads':
-			embed = discord.Embed(title='\N{ZERO WIDTH SPACE}', description=f'**{ctx.author.name}**, The coin Lands on __**Heads**__!', color=0x36393E)
-			embed.set_image(url="https://cdn.discordapp.com/attachments/490643354779123733/490643408327540773/heads.png")
+        cha = random.choice(['Hinde',
+                             '100% Sure',
+                             'Hindi ko alam',
+                             'malay ko',
+                             'ewan ko ba',
+                             'Di ko masasagot yan',
+                             'pagiisapan ko pa',
+                             'Oo na lang ako',
+                             'Di ko sure',
+                             'anong klaseng tanong yan?',
+                             'Tanong mo nalang kay Batman',
+                             'Yes na yes',
+                             'Uu',
+                             'True pa sa dede mo',
+                             'Tama ka dyan',
+                             'I Absolutely Agree',
+                             'Tumpak ka dyan',
+                             'Mali ka dyan',
+                             '👍',
+                             '👎'])
+        embed = discord.Embed(title='\N{ZERO WIDTH SPACE}',
+                              description=f'Question: {msg} \n Answer: {cha}, {ctx.author.name}', color=0x36393E)
+        await ctx.send(embed=embed)
 
-		
-		else:
-			embed = discord.Embed(title='\N{ZERO WIDTH SPACE}', description=f'**{ctx.author.name}**, The coin Lands on __**Tails**!__', color=0x36393E)
-			embed.set_image(url="https://cdn.discordapp.com/attachments/490643354779123733/490643410471092224/tails.png")
+    @commands.command()
+    async def flip(self, ctx):
+        '''Just a Flipcoin command'''
 
-		await ctx.send(embed=embed)
+        face = random.choice(['Heads', 'Tails'])
+
+        if face == 'Heads':
+            heads = discord.Embed(title='\N{ZERO WIDTH SPACE}',
+                                  description=f'**{ctx.author.name}**, The coin Lands on __**Heads**__!',
+                                  color=0x36393E)
+            heads.set_image(url="https://cdn.discordapp.com/attachments/490643354779123733/501749608603713541/heads.png")
+            await ctx.send(embed=heads)
+
+        else:
+            tails = discord.Embed(title='\N{ZERO WIDTH SPACE}',
+                                  description=f'**{ctx.author.name}**, The coin Lands on __**Tails**!__',
+                                  color=0x36393E)
+            tails.set_image(url="https://cdn.discordapp.com/attachments/490643354779123733/501749609014493184/tails.png")
+            await ctx.send(embed=tails)
+
 
 def setup(bot):
-	bot.add_cog(Fun(bot))
+    bot.add_cog(Fun(bot))

@@ -24,9 +24,9 @@ import libneko
 # Variables
 token = os.environ['TOKEN']
 
-Desc = 'Welcome to Mika ver. 0.4.4 Framework. \nThis project is still in WORK IN PROGRESS.'
+Desc = 'Welcome to Mika ver. 0.4.5 Framework. \nThis project is still in WORK IN PROGRESS.'
 
-initial_extensions = ['cogs.eval', 'cogs.fun', 'cogs.owner_override', 'cogs.utils', 'libneko.extras.help',
+initial_extensions = ['cogs.eval', 'cogs.fun', 'cogs.owner_override', 'cogs.utils',
                       'libneko.extras.superuser', 'cogs.image', 'cogs.st']
 
 # Logger Verbose
@@ -40,7 +40,6 @@ logger.addHandler(handler)
 prefixes = ['m++', 'Mika', 'Mika ']
 
 bot = commands.Bot(command_prefix=prefixes, description=Desc, owner_id=305998511894167552)
-
 
 @bot.event
 async def on_ready():
@@ -61,31 +60,29 @@ async def on_ready():
 
     print(f'Python Version {sys.version}')
     print(f'Discord Version {discord.__version__}')
-    print(f'We are inside of {bot.user} \n	with the ID {bot.user.id}')
-    guildlen = len(bot.guilds)
-    print(f'currently in {guildlen} servers')
-
+    print(f'currently in {[str(len(bot.guilds))]} servers')
 
 # Here we load our extensions(cogs) listed above in [initial_extensions].
 if __name__ == '__main__':
     for extension in initial_extensions:
         try:
             bot.load_extension(extension)
-            print(f'{extension} loaded successfully.')
+            print(f'{extension[5:]} loaded successfully.')
         except Exception as e:
-            print(f'Failed to load extension {extension}.', file=sys.stderr)
+            print(f'Failed to load extension {extension[5:]}.', file=sys.stderr)
             traceback.print_exc()
 
 bot.remove_command('help')
 
-
 @bot.command()
 async def help(ctx):
     '''Disables the help command'''
-    await ctx.send(
-        '''Help is currently disabled!
-        Please suggest a new command by using the command `m++suggest <suggestion>`.
-        Thank you for contributing the bot!''')
+    m = '''Help is currently disabled due to bugs.
+    Help me to grow this bot!
+    suggest a new command by using the command:
+    `m++suggest <suggestion>`
+    Thank you for contributing the bot!'''
+    await ctx.send(m)
 
 
 bot.run(token, bot=True, reconnect=True)
