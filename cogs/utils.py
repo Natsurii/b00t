@@ -49,7 +49,8 @@ import discord
 submission = discord.Embed(title=f'Question of the day', description=f'\*\*\*\_\_\_{msg}\_\_\_\*\*\*', color = 0xC0FFEE)
 submission.set_author(name=f"{ctx.author}", url="<https://discordapp.com>", icon_url=f"<{ctx.author.avatar_url}>")
 submission.set_footer(text='You can submit your own question by using the command \`m++qotd <question>\`')
-await ctx.bot.get_channel(495770447624011778).send(embed=submission)
+m = await ctx.bot.get_channel(495770447624011778).send(embed=submission)
+await m.pin()
 \`\`\`'''
         await ctx.bot.get_channel(501118687558893568).send(messa)
         await ctx.message.delete()
