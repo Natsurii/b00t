@@ -23,7 +23,7 @@ import libneko
 
 # Variables
 token = os.environ['TOKEN']
-
+owner = [422393995642273792, 305998511894167552] 
 Desc = 'Welcome to Mika ver. 0.4.5 Framework. \nThis project is still in WORK IN PROGRESS.'
 
 initial_extensions = ['cogs.eval', 'cogs.fun', 'cogs.owner_override', 'cogs.utils',
@@ -39,7 +39,7 @@ logger.addHandler(handler)
 # Prefixes
 prefixes = ['m++', 'Mika', 'Mika ']
 
-bot = commands.Bot(command_prefix=prefixes, description=Desc, owner_id=305998511894167552)
+bot = commands.Bot(command_prefix=prefixes, description=Desc, owner_id=owner)
 
 @bot.event
 async def on_ready():
