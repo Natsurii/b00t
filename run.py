@@ -39,7 +39,7 @@ logger.addHandler(handler)
 # Prefixes
 prefixes = ['m++', 'Mika', 'Mika ']
 
-bot = commands.Bot(command_prefix=prefixes, description=Desc, owner_id=owner)
+bot = commands.Bot(command_prefix=prefixes, description=Desc, owner_id=305998511894167552)
 
 @bot.event
 async def on_ready():
