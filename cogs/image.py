@@ -18,7 +18,7 @@ from io import BytesIO
 # this just allows for nice function annotation, and stops my IDE from complaining.
 from typing import Union
 
-class ImageCog():
+class ImageCog(commands.Cog):
     def __init__(self, bot: commands.Bot):
 
         # we need to include a reference to the bot here so we can access its loop later.
@@ -69,7 +69,8 @@ class ImageCog():
                     # we just created.
                     background.paste(rgb_avatar, (0, 0), mask=mask)
                     with Image.open('ST_design.png') as st:
-                        framest = st.resize(im.size,Image.LANCZOS);background.paste(st.resize(framest,(0,0),framest)
+                        framest=st.resize(im.size,Image.ANTIALIAS)
+                        background.paste(framest,(0,0),framest)
 
                 # prepare the stream to save this image into
                 
