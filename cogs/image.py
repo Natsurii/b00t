@@ -18,7 +18,7 @@ from io import BytesIO
 # this just allows for nice function annotation, and stops my IDE from complaining.
 from typing import Union
 
-class ImageCog:
+class ImageCog(commands.Cog):
     def __init__(self, bot: commands.Bot):
 
         # we need to include a reference to the bot here so we can access its loop later.
@@ -31,7 +31,7 @@ class ImageCog:
     async def get_avatar(self, user: Union[discord.User, discord.Member]) -> bytes:
 
         # generally an avatar will be 1024x1024, but we shouldn't rely on this
-        avatar_url = user.avatar_url_as(format="gif")
+        avatar_url = user.avatar_url_as(format="png")
 
         async with self.session.get(avatar_url) as response:
             # this gives us our response object, and now we can read the bytes from it.
@@ -68,10 +68,12 @@ class ImageCog:
                     # paste the alpha-less avatar on the background using the new circle mask
                     # we just created.
                     background.paste(rgb_avatar, (0, 0), mask=mask)
+                    with Image.open('ST_design.png') as st:
+                        background.paste(st,(0,0),st)
 
                 # prepare the stream to save this image into
+                
                 final_buffer = BytesIO()
-
                 # save into the stream, using png format.
                 background.save(final_buffer, "png")
 
@@ -81,7 +83,7 @@ class ImageCog:
         return final_buffer
 
     @commands.command()
-    async def circle(self, ctx, *, member: discord.Member = None):
+    async def serverframe(self, ctx, *, member: discord.Member = None):
         """Display the user's avatar on their colour."""
 
         # this means that if the user does not supply a member, it will default to the
@@ -109,7 +111,7 @@ class ImageCog:
             final_buffer = await self.bot.loop.run_in_executor(None, fn)
 
             # prepare the file
-            file = discord.File(filename="circle.gif", fp=final_buffer)
+            file = discord.File(filename="circle.png", fp=final_buffer)
 
             # send it
             await ctx.send(file=file)
