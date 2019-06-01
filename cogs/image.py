@@ -69,7 +69,7 @@ class ImageCog():
                     # we just created.
                     background.paste(rgb_avatar, (0, 0), mask=mask)
                     with Image.open('ST_design.png') as st:
-                        background.paste(st,(0,0),st)
+                        background.paste(st.resize((1024,1024),Image.LANCZOS),(0,0),st)
 
                 # prepare the stream to save this image into
                 
