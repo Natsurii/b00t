@@ -29,7 +29,7 @@ def DiscordBot():
 
 	@bot.event
 	async def on_ready():
-		logging.DEBUG(f'Bot Ready. \n Python Version: {str(sys.version)};\n Discord Version: {str(discord.__version__)} on {[str(len(bot.guilds))]} servers.')
+		logging.DEBUG('Bot is Ready.')
 		bot.remove_command('help');logging.DEBUG('Discord Help Command removed.')
 
 	with open('extension.txt') as xtenfile:
