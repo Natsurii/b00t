@@ -29,8 +29,8 @@ def DiscordBot():
 
 	@bot.event
 	async def on_ready():
-		logging.DEBUG('Bot is Ready.')
-		bot.remove_command('help');logging.DEBUG('Discord Help Command removed.')
+		print('Bot is Ready.')
+		bot.remove_command('help');print('Discord Help Command removed.')
 
 	with open('extension.txt') as xtenfile:
 		xtenfile.read()
@@ -38,7 +38,7 @@ def DiscordBot():
 		for extension in xtenfile:
 			try:
 				bot.load_extension(extension)
-				logging.DEBUG(f'{extension} loaded successfully.')
+				print(f'{extension} loaded successfully.')
 			except Exception as e:
 				logging.ERROR(f'Failed to load extension {extension}.', file=sys.stderr)
 				traceback.print_exc()
@@ -50,13 +50,13 @@ def facebookrun():
 
 	
 def main():
-	scheduler = AsyncIOScheduler()
+	#scheduler = AsyncIOScheduler()
 	DiscordBot()
 
 	'''with ThreadPoolExecutor(max_workers=3) as executor:
 		task1 = executor.submit(DiscordBot)'''
 
 	#scheduler.add_job(tick, 'interval', seconds=3)
-	scheduler.start()
+	#scheduler.start()
 if __name__ == '__main__':
 	main()
