@@ -24,8 +24,10 @@ logging.getLogger('apscheduler').setLevel(logging.DEBUG)
 
 def DiscordBot():
 	prefixes = ['m++', 'Mika', 'Mika ']
+	Desc = 'Welcome to Mika ver. 0.4.5 Framework. \nThis project is still in WORK IN PROGRESS.'
 	bot = commands.Bot(command_prefix=prefixes, description=Desc, owner_id=305998511894167552)
 	token = os.environ['TOKEN']
+
 
 	@bot.event
 	async def on_ready():
