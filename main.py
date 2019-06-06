@@ -40,7 +40,7 @@ def DiscordBot():
 				bot.load_extension(extension)
 				print(f'{extension} loaded successfully.')
 			except Exception as e:
-				logging.ERROR(f'Failed to load extension {extension}.', file=sys.stderr)
+				print(f'Failed to load extension {extension}.', file=sys.stderr)
 				traceback.print_exc()
 	bot.run(token, bot=True, reconnect=True)
 
