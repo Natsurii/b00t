@@ -18,7 +18,6 @@ except ImportError:
     import trollius as asyncio
 
 #enable Logging
-_logger = logging.basicConfig(level='INFO')
 logging.getLogger('apscheduler').setLevel(logging.DEBUG)
 
 def DiscordBot():
@@ -30,8 +29,8 @@ def DiscordBot():
 
 	@bot.event
 	async def on_ready():
-		_logger.DEBUG(f'Bot Ready. \n Python Version: {sys.version};\n Discord Version: {discord.__version__} on {[str(len(bot.guilds))]} servers.')
-		bot.remove_command('help');_logger.DEBUG('Discord Help Command removed.')
+		logging.DEBUG(f'Bot Ready. \n Python Version: {sys.version};\n Discord Version: {discord.__version__} on {[str(len(bot.guilds))]} servers.')
+		bot.remove_command('help');logging.DEBUG('Discord Help Command removed.')
 
 	with open('extension.txt') as xtenfile:
 		xtenfile.read()
@@ -39,15 +38,15 @@ def DiscordBot():
 		for extension in xtenfile:
 			try:
 				bot.load_extension(extension)
-				_logger.DEBUG(f'{extension} loaded successfully.')
+				logging.DEBUG(f'{extension} loaded successfully.')
 			except Exception as e:
-				_logger.ERROR(f'Failed to load extension {extension}.', file=sys.stderr)
+				logging.ERROR(f'Failed to load extension {extension}.', file=sys.stderr)
 				traceback.print_exc()
 	bot.run(token, bot=True, reconnect=True)
 
 def facebookrun():
 	p = Popen(['grep', 'f'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)
-	_logger(p.decode())
+	logging(p.decode())
 
 	
 def main():
