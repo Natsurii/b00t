@@ -11,6 +11,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 import discord, os , sys, logging
 from concurrent.futures import ThreadPoolExecutor
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from discord.ext import commands
 try:
     import asyncio
 except ImportError:
@@ -23,7 +24,7 @@ logging.getLogger('apscheduler').setLevel(logging.DEBUG)
 
 def DiscordBot():
 	prefixes = ['m++', 'Mika', 'Mika ']
-	bot = discord.ext.commands.Bot(command_prefix=prefixes, description=Desc, owner_id=305998511894167552)
+	bot = commands.Bot(command_prefix=prefixes, description=Desc, owner_id=305998511894167552)
 	token = os.environ['TOKEN']
 
 	@bot.event
