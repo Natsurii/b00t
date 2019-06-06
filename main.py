@@ -50,9 +50,10 @@ def facebookrun():
 	
 def main():
 	scheduler = AsyncIOScheduler()
+	DiscordBot()
 
-	with ThreadPoolExecutor(max_workers=3) as executor:
-		task1 = executor.submit(DiscordBot)
+	'''with ThreadPoolExecutor(max_workers=3) as executor:
+		task1 = executor.submit(DiscordBot)'''
 
 	#scheduler.add_job(tick, 'interval', seconds=3)
 	scheduler.start()
