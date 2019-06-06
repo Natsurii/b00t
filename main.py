@@ -19,7 +19,6 @@ except ImportError:
 
 #enable Logging
 _logger = logging.basicConfig(level='INFO')
-logging.getLogger('discord').setLevel(logging.DEBUG)
 logging.getLogger('apscheduler').setLevel(logging.DEBUG)
 
 def DiscordBot():
