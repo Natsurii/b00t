@@ -1,2 +1,4 @@
 libneko.extras.superuser
-cogs.info
+cogs.image
+cogs.fun
+cogs.utils

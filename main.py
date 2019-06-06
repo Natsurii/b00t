@@ -24,9 +24,9 @@ logging.getLogger('apscheduler').setLevel(logging.DEBUG)
 def DiscordBot():
 	prefixes = ['m++', 'Mika', 'Mika ']
 	bot = discord.ext.commands.Bot(command_prefix=prefixes, description=Desc, owner_id=305998511894167552)
+	token = os.environ['TOKEN']
 
 	@bot.event
-	token = os.environ['TOKEN']
 	async def on_ready():
 		_logger.DEBUG(f'Bot Ready. \n Python Version: {sys.version};\n Discord Version: {discord.__version__} on {[str(len(bot.guilds))]} servers.')
 		bot.remove_command('help');_logger.DEBUG('Discord Help Command removed.')
@@ -50,8 +50,11 @@ def facebookrun():
 	
 def main():
 	scheduler = AsyncIOScheduler()
+
 	with ThreadPoolExecutor(max_workers=3) as executor:
 		task1 = executor.submit(DiscordBot)
 
+	#scheduler.add_job(tick, 'interval', seconds=3)
+	scheduler.start()
 if __name__ == '__main__':
 	main()
