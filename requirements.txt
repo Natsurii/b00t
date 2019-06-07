@@ -1,5 +1,5 @@
 git+https://gitlab.com/Tmpod/libneko@commands-fix
-discord.py
+discord.py==1.0.0a
 Pillow
 aiohttp
 websockets
