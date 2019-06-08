@@ -1,4 +1,4 @@
-git+https://github.com/Rapptz/discord.py@rewrite#egg=discord.py[voice]
+discord.py==1.0.0
 git+https://gitlab.com/neko404notfound/libneko
 Pillow
 aiohttp>=3.3.0,<3.4.0
