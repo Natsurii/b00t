@@ -62,15 +62,14 @@ async def on_ready():
     print(f'Discord Version {discord.__version__}')
     print(f'currently in {[str(len(bot.guilds))]} servers')
 
-# Here we load our extensions(cogs) listed above in [initial_extensions].
-if __name__ == '__main__':
-    for extension in initial_extensions:
-        try:
-            bot.load_extension(extension)
-            print(f'{extension[5:]} loaded successfully.')
-        except Exception as e:
-            print(f'Failed to load extension {extension[5:]}.', file=sys.stderr)
-            traceback.print_exc()
+# Here we load our extensions(cogs) listed above in [initial_extensions]
+for extension in initial_extensions:
+    try:
+        bot.load_extension(extension)
+        print(f'{extension[5:]} loaded successfully.')
+    except Exception as e:
+        print(f'Failed to load extension {extension[5:]}.', file=sys.stderr)
+        traceback.print_exc()
 
 bot.remove_command('help')
 
