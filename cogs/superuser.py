@@ -359,7 +359,7 @@ class SuperuserCog(commands.Cog):
 
         nl = "\n"
         pag.add_line(f'---- {prog.replace(nl, " ")} ----')
-        pag.add_line('Thanks Espy for this Executor! xD')
+        pag.add_line('---- Thanks Espy for this Executor! xD ----')
 
         if sout:
             pag.add_line("- /dev/stdout:")
