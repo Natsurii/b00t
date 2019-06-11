@@ -9,7 +9,7 @@ from discord.ext import commands
 def owner(ctx):
 	return ctx.message.author.id == 305998511894167552
 
-class Eval():
+class Eval(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
 		self._last_result = None

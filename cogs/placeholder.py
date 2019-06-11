@@ -2,7 +2,7 @@ import discord
 import random
 from discord.ext import commands
 
-class Placeholder():
+class Placeholder(commands.Cog):
 	def __init__(self,bot):
 		return
 

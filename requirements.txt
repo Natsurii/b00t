@@ -5,3 +5,4 @@ aiohttp>=3.3.0,<3.4.0
 websockets<7.0,>=6.0
 aiofiles
 psutil
+jishaku

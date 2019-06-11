@@ -16,7 +16,7 @@ import discord
 from discord.ext import commands
 
 
-class Owner():
+class Owner(commands.Cog):
     def __init__(self, bot):
         return
 
