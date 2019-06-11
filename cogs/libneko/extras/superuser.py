@@ -46,7 +46,7 @@ import traceback
 
 from libneko import commands
 from libneko.pag import factory
-
+from discord.ext import commands as com
 
 _logger = logging.getLogger("libneko.extras.superuser")
 
@@ -244,7 +244,7 @@ def scrub(content):
     return content.replace("\N{GRAVE ACCENT}" * 3, "\N{MODIFIER LETTER GRAVE ACCENT}" * 3)
 
 
-class SuperuserCog(commands.Cog):
+class SuperuserCog(com.Cog):
     # noinspection PyUnresolvedReferences
     """
     Parameters:
