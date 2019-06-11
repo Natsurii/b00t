@@ -73,7 +73,7 @@ from discord.ext.commands.converter import (
     EmojiConverter,
 )
 
-from neko2.libneko import funcmods
+from libneko import funcmods
 
 if typing.TYPE_CHECKING:
 

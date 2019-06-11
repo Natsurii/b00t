@@ -72,16 +72,16 @@ from discord.ext.commands.core import *
 # noinspection PyUnresolvedReferences
 from discord.ext.commands.errors import *
 
-from neko2.libneko import funcmods, embeds
+from libneko import funcmods, embeds
 
 # DPy back compat
 # noinspection PyUnresolvedReferences
-from neko2.libneko.converters import *
+from libneko.converters import *
 
 # noinspection PyUnresolvedReferences
-from neko2.libneko.checks import *
+from libneko.checks import *
 
-from neko2.libneko.attr_generator import attr_generator
+from libneko.attr_generator import attr_generator
 
 
 #: Forward compat.

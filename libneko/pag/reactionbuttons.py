@@ -52,8 +52,8 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import converter
 
-from neko2.libneko import funcmods
-from neko2.libneko import logging
+from libneko import funcmods
+from libneko import logging
 
 # Navigator object owning the button instance.
 from . import navigator

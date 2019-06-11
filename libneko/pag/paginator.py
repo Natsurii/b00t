@@ -29,7 +29,7 @@ __all__ = ("Substitution", "Paginator")
 import collections
 from typing import List, Sequence, Callable
 
-from neko2.libneko import properties
+from libneko import properties
 
 # Marks the intent for a page break.
 _PAGE_BREAK = object()

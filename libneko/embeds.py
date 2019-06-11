@@ -46,7 +46,7 @@ from urllib import parse as urlparse
 from discord import embeds
 from discord.errors import ClientException
 
-from neko2.libneko.singleton import Singleton
+from libneko.singleton import Singleton
 
 default_colour = 0x363940
 

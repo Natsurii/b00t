@@ -39,7 +39,7 @@ import typing
 
 import aiofiles
 
-from neko2.libneko.funcmods import steal_docstring_from
+from libneko.funcmods import steal_docstring_from
 
 __all__ = ("in_this_directory", "AsyncFile", "aioopen", "BufferProtocol")
 

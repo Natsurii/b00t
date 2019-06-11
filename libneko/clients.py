@@ -42,11 +42,11 @@ from concurrent.futures import thread
 import discord as _discord
 from discord.ext import commands as _commands
 
-from neko2.libneko import commands
-from neko2.libneko import converters
-from neko2.libneko import embeds
-from neko2.libneko import funcmods
-from neko2.libneko import logging
+from libneko import commands
+from libneko import converters
+from libneko import embeds
+from libneko import funcmods
+from libneko import logging
 
 _magic_number = os.cpu_count() * 5 - 1
 

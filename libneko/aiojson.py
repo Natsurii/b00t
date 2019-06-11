@@ -32,7 +32,7 @@ import json
 import typing
 from json import *
 
-from neko2.libneko import funcmods, filesystem
+from libneko import funcmods, filesystem
 
 __all__ = json.__all__ + ["aioload", "aiodump", "Json"]
 

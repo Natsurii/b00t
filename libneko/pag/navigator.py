@@ -46,7 +46,7 @@ import async_timeout
 import discord
 from discord.ext import commands
 
-from neko2.libneko import logging
+from libneko import logging
 from . import abc
 
 # Stops looped lookups failing.
@@ -247,7 +247,7 @@ class BaseNavigator(abc.PagABC, Generic[PageT]):
         timeout: float = 300,
         initial_page: int = 0,
     ):
-        from neko2.libneko.pag.reactionbuttons import Button
+        from libneko.pag.reactionbuttons import Button
 
         if isinstance(ctx, tuple):
             ctx = FakeContext(*ctx)

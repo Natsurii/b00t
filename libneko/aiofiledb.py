@@ -34,8 +34,8 @@ import textwrap
 import time
 import typing
 
-from neko2.libneko import filesystem, logging
-from neko2.libneko import aiojson
+from libneko import filesystem, logging
+from libneko import aiojson
 
 
 class AsyncSimpleDatabase(logging.Log):

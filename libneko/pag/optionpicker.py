@@ -7,9 +7,9 @@ __all__ = ("option_picker", "NoOptionPicked")
 
 from typing import Any, Callable, Tuple, Union
 
-from neko2.libneko.commands import Context
-from neko2.libneko.embeds import Embed
-from neko2.libneko.singleton import Singleton
+from libneko.commands import Context
+from libneko.embeds import Embed
+from libneko.singleton import Singleton
 from .factory import EmbedNavigatorFactory, embed_generator
 from .navigator import CancelAction, FakeContext
 from .reactionbuttons import next_page, previous_page
