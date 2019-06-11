@@ -21,7 +21,7 @@ class Eval(commands.Cog):
 
 	@commands.command(hidden=True, name='eval', alias='ev')
 	@commands.is_owner()	
-	async def _eval(self, ctx, *, body: str):
+	async def eval_a(self, ctx, *, body: str):
 		'''(owner)Evaluate code''' 
 		env = {
 			'bot': self.bot,
