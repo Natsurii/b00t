@@ -48,8 +48,8 @@ import aiofiles
 import aiohttp
 import discord
 
-from neko2.libneko import commands
-from neko2.libneko.pag import factory
+from libneko import commands
+from libneko.pag import factory
 
 _logger = logging.getLogger("libneko.extras.superuser")
 
