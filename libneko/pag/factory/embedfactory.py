@@ -52,8 +52,8 @@ from typing import Union, Sequence, List
 import discord
 from discord.ext import commands
 
-from neko2.libneko import embeds
-from neko2.libneko.pag.factory.basefactory import BaseFactory
+from libneko import embeds
+from libneko.pag.factory.basefactory import BaseFactory
 from ..navigator import FakeContext, EmbedNavigator
 from ..paginator import Paginator
 from ..reactionbuttons import Button, default_buttons
