@@ -6,3 +6,5 @@ websockets<7.0,>=6.0
 aiofiles
 psutil
 jishaku
+tensorflow
+textgenrnn
